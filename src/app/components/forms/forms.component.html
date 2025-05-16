@@ -1,0 +1,118 @@
+<div class="container my-5">
+    <div class="row g-4 align-items-start">
+        <!-- Imagem -->
+        <div class="col-md-6 text-center">
+            <img src="/img/broncoSport.png" class="img-fluid rounded" alt="Carro Ford" />
+        </div>
+
+        <!-- Formulário -->
+        <div class="col-md-6">
+            <h2 class="mb-4 text-primary fw-bold">Sobre Você</h2>
+            <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <input type="text" formControlName="nome" class="form-control" placeholder="NOME*"
+                        [class.is-invalid]="contatoForm.get('nome')?.touched && contatoForm.get('nome')?.invalid"
+                        required />
+                    <div *ngIf="contatoForm.get('nome')?.touched && contatoForm.get('nome')?.invalid"
+                        class="invalid-feedback">
+                        Nome é obrigatório.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="text" formControlName="sobrenome" class="form-control" placeholder="SOBRENOME*"
+                        [class.is-invalid]="contatoForm.get('sobrenome')?.touched && contatoForm.get('sobrenome')?.invalid"
+                        required />
+                    <div *ngIf="contatoForm.get('sobrenome')?.touched && contatoForm.get('sobrenome')?.invalid"
+                        class="invalid-feedback">
+                        Sobrenome é obrigatório.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <input  type="text" formControlName="cpf" class="form-control" placeholder="CPF*"
+                        [class.is-invalid]="contatoForm.get('cpf')?.touched && contatoForm.get('cpf')?.invalid"
+                        required />
+                    <div *ngIf="contatoForm.get('cpf')?.touched && contatoForm.get('cpf')?.invalid"
+                        class="invalid-feedback">
+                        CPF é obrigatório.
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <input type="email" formControlName="email" class="form-control" placeholder="E-MAIL*"
+                        [class.is-invalid]="contatoForm.get('email')?.touched && contatoForm.get('email')?.invalid"
+                        required />
+                    <div *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['required']"
+                        class="invalid-feedback">
+                        E-mail é obrigatório.
+                    </div>
+                    <div *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['email']"
+                        class="invalid-feedback">
+                        E-mail inválido.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="tel" formControlName="telefone" class="form-control" placeholder="TELEFONE*"
+                        [class.is-invalid]="contatoForm.get('telefone')?.touched && contatoForm.get('telefone')?.invalid"
+                        required />
+                    <div *ngIf="contatoForm.get('telefone')?.touched && contatoForm.get('telefone')?.invalid"
+                        class="invalid-feedback">
+                        Telefone é obrigatório.
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <select formControlName="contato" class="form-select" required>
+                        <option value="">COMO DESEJA SER CONTATADO</option>
+                        <option value="Telefone">TELEFONE</option>
+                        <option value="Email">E-MAIL</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <select formControlName="tipoContato" class="form-select" required>
+                        <option value="">MOTIVO CONTATO</option>
+                        <option value="Elogio">ELOGIO</option>
+                        <option value="Reclamação">RECLAMAÇÃO</option>
+                        <option value="Solicitação">SOLICITAÇÃO</option>
+                        <option value="Sugestão">SUGESTÃO</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <textarea formControlName="descricao" class="form-control" rows="4" placeholder="DIGITE AQUI"
+                        required></textarea>
+                </div>
+
+                <div class="form-text mb-3">
+                    Os dados serão mantidos em nossa base de dados, só enquanto for desejado por você.
+                    A qualquer momento será possível editar ou remover tais dados.
+                    <a href="https://www.ford.com.br/politica-de-privacidade/" target="_blank">Termos e condições</a>
+                </div>
+
+                <div class="form-check mb-2">
+                    <input type="checkbox" class="form-check-input" id="checkTermos"
+                        (change)="onTermosChange($event)" />
+                    <label class="form-check-label" for="checkTermos">Sim, li e concordo com os vossos termos.</label>
+                </div>
+
+                <div class="form-check mb-4">
+                    <input type="checkbox" class="form-check-input" formControlName="receberNovidades"
+                        id="checkNovidades" />
+                    <label class="form-check-label" for="checkNovidades">Sim, também quero receber descontos e
+                        novidades.</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 fw-bold" [disabled]="!termosAceitos"
+                    [ngClass]="{ 'button-select': termosAceitos }">
+                    Enviar
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>

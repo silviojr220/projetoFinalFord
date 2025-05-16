@@ -1,0 +1,9 @@
+.carousel-img {
+    max-height: 400px;
+    /* aumenta o tamanho */
+    width: auto;
+    margin: 0 auto;
+    /* centraliza horizontalmente */
+    display: block;
+    object-fit: contain;
+}

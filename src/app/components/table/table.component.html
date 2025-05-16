@@ -1,0 +1,88 @@
+<div class="car-selection">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4 mb-4" *ngFor="let car of cars">
+                <div class="card h-100 shadow-sm">
+                    <img [src]="car.image" class="card-img-top" [alt]="car.name"
+                        style="height: 200px; object-fit: contain;" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ car.name }}</h5>
+                        <p class="card-text">
+                            {{ car.brand }} • {{ car.year }}
+                        </p>
+                        <div class="form-check d-flex justify-content-center">
+                            <input class="form-check-input" type="checkbox" [checked]="car.selected"
+                                [disabled]="!car.selected && selectedCars.length >= 2"
+                                (change)="onCarCheckboxChange(car)" />
+                            <label class="form-check-label ms-2">Selecionar</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Botão para abrir o modal -->
+    <div class="d-flex justify-content-center mt-3 mb-4">
+        <button
+          class="btn btn-primary compare-button"
+          [disabled]="selectedCars.length !== 2"
+          data-bs-toggle="modal"
+          data-bs-target="#comparisonModal"
+          (click)="animateButton($event)"
+        >
+          Comparar
+        </button>
+      </div>
+      
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="comparisonModal" tabindex="-1" aria-labelledby="comparisonModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-white" style="background-color: #1b357e;">
+
+                    <h5 class="modal-title" id="comparisonModalLabel">Comparação de Carros</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Imagens dos carros -->
+                    <div class="row text-center mb-4">
+                        <div class="col-6" *ngFor="let car of selectedCars">
+                            <img [src]="car.image" class="img-fluid rounded shadow" alt="{{ car.name }}"
+                                style="max-height: 200px;" />
+                            <p class="mt-2 fw-bold">{{ car.name }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Tabela com dados -->
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Modelo</th>
+                                <th>Marca</th>
+                                <th>Ano</th>
+                                <th>Potência</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let car of selectedCars">
+                                <td>{{ car.name }}</td>
+                                <td>{{ car.brand }}</td>
+                                <td>{{ car.year }}</td>
+                                <td>{{ car.power }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

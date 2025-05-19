@@ -4,7 +4,7 @@
     <!-- Logo da Ford -->
     <div class="d-flex align-items-center">
       <a href="/" class="d-inline-flex align-items-center text-decoration-none">
-        <img src="/img/ford.png" alt="Ford Logo" width="100" height="auto" />
+        <img src="http://localhost:3001/img/ford.png" alt="Ford Logo" width="100" height="auto" />
       </a>
     </div>
 
@@ -43,8 +43,8 @@
 
       <!-- Botão de login -->
       <div class="text-end">
-        <button type="button" class="btn btn-outline-primary custom-btn-blue" routerLink="/login">
-          <i class="bi bi-box-arrow-in-right me-1"></i> Login
+        <button type="button" class="btn btn-outline-primary custom-btn-blue" [routerLink]="['/login']">
+          <i class="bi bi-box-arrow-in-right me-1"></i> Logout
         </button>
       </div>
 

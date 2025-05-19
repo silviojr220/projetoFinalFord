@@ -75,6 +75,14 @@ app.get("/vehicles", (req, res) => {
                 connected: 4060,
                 softwareUpdates: 2050,
                 img: "http://localhost:3001/img/broncoSport.png"
+            },
+            {
+                id: 5,
+                vehicle: "Maverick",
+                volumetotal: 7560,
+                connected: 4060,
+                softwareUpdates: 2050,
+                img: "http://localhost:3001/img/maverick.jpg"
             }
         ];
 

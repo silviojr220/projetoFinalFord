@@ -17,7 +17,7 @@ export class TableComponent {
       torque: '600Nm/405Nm',
       engine: '3.0 V6 ou 2.0',
       year: '2024',
-      image: '/img/ranger.png',
+      image: 'http://localhost:3001/img/ranger.png',
       selected: false
     },
     {
@@ -27,7 +27,7 @@ export class TableComponent {
       torque: '564Nm',
       engine: 'Coyote 5.0L V8',
       year: '2025',
-      image: '/img/mustang.png',
+      image: 'http://localhost:3001/img/mustang.png',
       selected: false
     },
     {
@@ -37,7 +37,7 @@ export class TableComponent {
       torque: '260 Nm',
       engine: '1.5L Turbo EcoBoost (4 cilindros)',
       year: '2025',
-      image: 'img/territory.png',
+      image: 'http://localhost:3001/img/territory.png',
       selected: false
     },
     {
@@ -47,7 +47,7 @@ export class TableComponent {
       torque: '210 Nm',
       engine: '2.5L Atkinson Cycle Hybrid',
       year: '2025',
-      image: 'img/maverick.jpg',
+      image: 'http://localhost:3001/img/maverick.jpg',
       selected: false
     }
   ];

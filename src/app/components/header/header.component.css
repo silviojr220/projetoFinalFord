@@ -7,10 +7,25 @@
   }
 
   .navbar-nav .nav-link {
-    color: #fff !important; /* forçando branco nos links */
+    color: #244fc5 !important; /* forçando branco nos links */
     padding: 0.5rem 1rem;
   }
 
   .navbar-nav .nav-link:hover {
     text-decoration: underline;
   }
+
+  .text-custom-blue {
+    color: #244fc5 !important;
+  }
+  
+  .custom-btn-blue {
+    color: #244fc5;
+    border-color: #244fc5;
+  }
+  
+  .custom-btn-blue:hover {
+    background-color: #244fc5;
+    color: #fff;
+  }
+  

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Brasil - Modelos e Tecnologia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .carousel-img {
+            height: 500px;
+            object-fit: cover;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .btn-ford {
+            background-color: #1b357e;
+            color: white;
+        }
+        .btn-ford:hover {
+            background-color: #0f2257;
+            color: white;
+        }
+        .nav-link:hover {
+            color: #f0f0f0 !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background-color: #1b357e;">
+            <div class="container-fluid">
+                <div>
+                    <img src="https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/ford-logo-blue.png" class="img-fluid" alt="Ford Logo" style="width: 100px;">
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Lançamentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Modelos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Carousel -->
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/territory/2023/overview/ford-territory-highlight-d.jpg" class="d-block w-100 carousel-img" alt="Ford Territory">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/ranger/2023/overview/ford-ranger-highlight-d.jpg" class="d-block w-100 carousel-img" alt="Ford Ranger">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/mustang/2023/overview/ford-mustang-highlight-d.jpg" class="d-block w-100 carousel-img" alt="Ford Mustang">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/maverick/2023/overview/ford-maverick-highlight-d.jpg" class="d-block w-100 carousel-img" alt="Ford Maverick">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+
+        <!-- Cards Section -->
+        <section class="container my-5">
+            <h2 class="text-3xl font-bold text-center mb-5 text-gray-800">Por que escolher a Ford?</h2>
+            
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6">
+                    <div class="card card-hover h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4 d-flex align-items-center justify-content-center p-3" style="background-color: #f0f6ff;">
+                                <img src="https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/global-nav/why-ford/ford-co-pilot360-technology.png" class="img-fluid" alt="Tecnologia Ford">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title text-xl font-semibold">Tecnologia Avançada</h5>
+                                    <p class="card-text text-gray-600">A Ford oferece os mais modernos sistemas de assistência ao motorista, como o Ford Co-Pilot360™, que inclui recursos como frenagem automática de emergência e assistente de permanência em faixa.</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <small class="text-body-secondary">Atualizado recentemente</small>
+                                        <button class="btn btn-ford btn-sm">Saiba mais</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-md-6">
+                    <div class="card card-hover h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4 d-flex align-items-center justify-content-center p-3" style="background-color: #fff0f0;">
+                                <img src="https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/global-nav/why-ford/ford-performance.png" class="img-fluid" alt="Performance Ford">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title text-xl font-semibold">Performance Inigualável</h5>
+                                    <p class="card-text text-gray-600">Motores potentes e eficientes que combinam desempenho e economia de combustível. Experimente a emoção de dirigir um veículo Ford com tecnologia EcoBoost.</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <small class="text-body-secondary">Atualizado recentemente</small>
+                                        <button class="btn btn-ford btn-sm">Saiba mais</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="col-md-6">
+                    <div class="card card-hover h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4 d-flex align-items-center justify-content-center p-3" style="background-color: #f0fff0;">
+                                <img src="https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/global-nav/why-ford/ford-suv.png" class="img-fluid" alt="SUV Ford">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title text-xl font-semibold">Design Inovador</h5>
+                                    <p class="card-text text-gray-600">Linhas aerodinâmicas e modernas que combinam estilo e funcionalidade. Os SUVs Ford oferecem espaço interno generoso e versatilidade para todas as suas necessidades.</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <small class="text-body-secondary">Atualizado recentemente</small>
+                                        <button class="btn btn-ford btn-sm">Saiba mais</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="col-md-6">
+                    <div class="card card-hover h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4 d-flex align-items-center justify-content-center p-3" style="background-color: #fffaf0;">
+                                <img src="https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/global-nav/why-ford/ford-assistance.png" class="img-fluid" alt="Assistência Ford">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title text-xl font-semibold">Assistência 24h</h5>
+                                    <p class="card-text text-gray-600">Com a Rede de Concessionárias Ford, você tem suporte completo em todo o Brasil. Além disso, conte com o Ford Assist 24h para emergências e assistência na estrada.</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <small class="text-body-secondary">Atualizado recentemente</small>
+                                        <button class="btn btn-ford btn-sm">Saiba mais</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid" style="background-color: #1b357e;">
+            <div class="d-flex flex-wrap justify-content-between align-items-center py-3 px-4">
+                <div class="col-md-4 d-flex align-items-center">
+                    <span class="text-white">© 2025 Ford Motor Company</span>
+                </div>
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3">
+                        <a class="text-white" href="https://x.com/Ford" target="_blank">
+                            <i class="bi bi-twitter" style="font-size: 1.5rem;"></i>
+                        </a>
+                    </li>
+                    <li class="ms-3">
+                        <a class="text-white" href="https://www.instagram.com/fordbrasil/" target="_blank">
+                            <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+                        </a>
+                    </li>
+                    <li class="ms-3">
+                        <a class="text-white" href="https://www.facebook.com/FordBrasil/" target="_blank">
+                            <i class="bi bi-facebook" style="font-size: 1.5rem;"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple animation for cards when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-hover');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Button click handlers
+            document.querySelectorAll('.btn-ford').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const cardTitle = this.closest('.card-body').querySelector('.card-title').textContent;
+                    alert(`Você clicou em "${cardTitle}". Em breve você será redirecionado para mais informações.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

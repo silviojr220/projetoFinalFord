@@ -29,8 +29,11 @@
                     </div>
                 </div>
 
+                <!-- ... começo do formulário ... -->
+
                 <div class="mb-3">
-                    <input  type="text" formControlName="cpf" class="form-control" placeholder="CPF*"
+                    <input type="text" formControlName="cpf" mask="000.000.000-00" class="form-control"
+                        placeholder="CPF*"
                         [class.is-invalid]="contatoForm.get('cpf')?.touched && contatoForm.get('cpf')?.invalid"
                         required />
                     <div *ngIf="contatoForm.get('cpf')?.touched && contatoForm.get('cpf')?.invalid"
@@ -38,7 +41,6 @@
                         CPF é obrigatório.
                     </div>
                 </div>
-
 
                 <div class="mb-3">
                     <input type="email" formControlName="email" class="form-control" placeholder="E-MAIL*"
@@ -55,7 +57,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <input type="tel" formControlName="telefone" class="form-control" placeholder="TELEFONE*"
+                    <input type="tel" formControlName="telefone" mask="(00) 00000-0000" class="form-control"
+                        placeholder="TELEFONE*"
                         [class.is-invalid]="contatoForm.get('telefone')?.touched && contatoForm.get('telefone')?.invalid"
                         required />
                     <div *ngIf="contatoForm.get('telefone')?.touched && contatoForm.get('telefone')?.invalid"
@@ -63,7 +66,6 @@
                         Telefone é obrigatório.
                     </div>
                 </div>
-
 
                 <div class="mb-3">
                     <select formControlName="contato" class="form-select" required>

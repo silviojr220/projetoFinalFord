@@ -41,7 +41,7 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header text-white" style="background-color: #1b357e;">
+                <div class="modal-header text-white" style="background-color: #244fc5;">
 
                     <h5 class="modal-title" id="comparisonModalLabel">Comparação de Carros</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
@@ -66,6 +66,8 @@
                                 <th>Marca</th>
                                 <th>Ano</th>
                                 <th>Potência</th>
+                                <th>Torque</th>
+                                <th>Motor</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,6 +76,8 @@
                                 <td>{{ car.brand }}</td>
                                 <td>{{ car.year }}</td>
                                 <td>{{ car.power }}</td>
+                                <td>{{ car.torque }}</td>
+                                <td>{{ car.engine }}</td>
                             </tr>
                         </tbody>
                     </table>

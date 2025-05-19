@@ -1,25 +1,56 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #1b357e;">
-  <div class="container-fluid">
-    <div>
-      <img src="/img/ford.png" class="img-fluid" alt="fordLogo" style="width: 100px;">
+<nav class="navbar navbar-expand-lg border-bottom py-3">
+  <div class="container-fluid d-flex align-items-center justify-content-between px-4">
+
+    <!-- Logo da Ford -->
+    <div class="d-flex align-items-center">
+      <a href="/" class="d-inline-flex align-items-center text-decoration-none">
+        <img src="/img/ford.png" alt="Ford Logo" width="100" height="auto" />
+      </a>
     </div>
+
+    <!-- Toggler para mobile -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-      <ul class="navbar-nav">
+    <!-- Menu -->
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+
+      <!-- Links -->
+      <ul class="navbar-nav mx-auto d-flex align-items-center gap-3">
         <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/home">Home</a>
+          <a routerLink="/home" class="nav-link d-flex align-items-center gap-1 text-custom-blue">
+            <i class="bi bi-house-door text-custom-blue"></i> Home
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/lancamento">Lançamento</a>
+          <a routerLink="/lancamento" class="nav-link d-flex align-items-center gap-1 text-custom-blue">
+            <i class="bi bi-star-fill text-custom-blue"></i> Lançamento
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/contato">Contato</a>
+          <a routerLink="/dashboard" class="nav-link d-flex align-items-center gap-1 text-custom-blue">
+            <i class="bi bi-speedometer2 text-custom-blue"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contato" class="nav-link d-flex align-items-center gap-1 text-custom-blue">
+            <i class="bi bi-envelope-fill text-custom-blue"></i> Contato
+          </a>
         </li>
       </ul>
+
+      <!-- Botão de login -->
+      <div class="text-end">
+        <button type="button" class="btn btn-outline-primary custom-btn-blue" routerLink="/login">
+          <i class="bi bi-box-arrow-in-right me-1"></i> Login
+        </button>
+      </div>
+
     </div>
   </div>
 </nav>
+
+
+

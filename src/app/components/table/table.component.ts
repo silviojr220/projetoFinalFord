@@ -33,16 +33,26 @@ export class TableComponent {
     {
       name: 'Territory',
       brand: 'Ford',
-      power: '488cv',
-      torque: '564Nm',
-      engine: 'Coyote 5.0L V8',
+      power: '170 cv',
+      torque: '260 Nm',
+      engine: '1.5L Turbo EcoBoost (4 cilindros)',
       year: '2025',
       image: 'img/territory.png',
+      selected: false
+    },
+    {
+      name: 'Maverick',
+      brand: 'Ford',
+      power: '194 cv',
+      torque: '210 Nm',
+      engine: '2.5L Atkinson Cycle Hybrid',
+      year: '2025',
+      image: 'img/maverick.jpg',
       selected: false
     }
   ];
 
-  // Getter pra pegar os carros selecionados
+  //Getter pra pegar os carros selecionados
   get selectedCars() {
     return this.cars.filter(car => car.selected);
   }
@@ -51,19 +61,18 @@ export class TableComponent {
   onCarCheckboxChange(car: any): void {
     car.selected = !car.selected;
 
-    // Garante que no máximo 2 carros estejam selecionados
+    //Garante que no máximo 2 carros estejam selecionados
     const selected = this.selectedCars;
     if (selected.length > 2) {
       car.selected = false;
     }
   }
 
-  //  Desabilita checkbox se já tiver 2 selecionados
+  //Desabilita checkbox se já tiver 2 selecionados
   isCheckboxDisabled(index: number): boolean {
     return !this.cars[index].selected && this.selectedCars.length >= 2;
   }
 
-  // Ainda existe, mas não tá sendo usado com modal (pode remover se quiser)
   showComparison = false;
 
   animateButton(event: Event): void {

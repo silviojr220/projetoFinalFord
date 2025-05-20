@@ -1,10 +1,10 @@
 <header>
   <app-header></app-header> 
 </header>
-  <div *ngIf="selectorVehicles" class="container-fluid d-flex justify-content-center flex-column">
+  <div *ngIf="selectorVehicles" class="container-fluid d-flex justify-content-center flex-column flex-fill">
 
     <!-- Cards em linha -->
-    <div class="d-flex flex-row flex-wrap gap-1 justify-content-center">
+    <div class="d-flex flex-row flex-wrap gap-1 justify-content-center my-auto">
 
       <!-- Seletor-de-Carros -->
       <div class="card mb-3" style="width: 18rem;">
@@ -70,7 +70,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="mt-auto">
       <app-vin></app-vin>
     </div>
   </div>

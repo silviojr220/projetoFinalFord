@@ -21,3 +21,37 @@ main {
     background-color: #1b357e;
     color: white;
 }
+
+.section-bg {
+    position: relative;
+    background-image: url('http://localhost:3001/img/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    padding: 2rem;
+    overflow: hidden;
+  }
+  
+  .section-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3); /* escurece um pouco o fundo */
+    z-index: 0;
+  }
+  
+  .section-bg > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+
+  .card-body {
+    padding: 1rem; /* padding menor */
+  }
+  
+  .card.card-hover {
+    min-height: 280px; /* altura mínima menor */
+  }
+  

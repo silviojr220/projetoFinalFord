@@ -10,16 +10,40 @@
   .compare-button.clicked {
     animation: clickPulse 0.3s ease;
   }
-  
-  @keyframes clickPulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(0.95);
-    }
-    100% {
-      transform: scale(1);
-    }
+  /* Animação de entrada */
+@keyframes pop {
+  0% {
+    transform: scale(1);
   }
-  
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.car-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Quando nenhum estiver selecionado, todos ficam meio opacos */
+.card-dimmed {
+  opacity: 0.5;
+}
+
+/* Quando tem 2 já selecionados */
+.card-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Quando o card é selecionado */
+.card-selected {
+  background-color: #e8f0ff;
+  animation: pop 0.25s ease;
+  box-shadow: 0 0 12px rgba(36, 79, 197, 0.6);
+  opacity: 1 !important;
+  transform: scale(1.01);
+}

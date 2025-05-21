@@ -58,21 +58,22 @@ export class TableComponent {
   }
 
   //chamada quando checkbox é clicado
-  onCarCheckboxChange(car: any): void {
-    car.selected = !car.selected;
-
-    //Garante que no máximo 2 carros estejam selecionados
-    const selected = this.selectedCars;
-    if (selected.length > 2) {
+  onCarCardClick(car: any): void {
+    if (car.selected) {
       car.selected = false;
+      return;
+    }
+  
+    if (this.selectedCars.length < 2) {
+      car.selected = true;
     }
   }
-
-  //Desabilita checkbox se já tiver 2 selecionados
-  isCheckboxDisabled(index: number): boolean {
-    return !this.cars[index].selected && this.selectedCars.length >= 2;
+  
+  // Se nenhum carro estiver selecionado
+  get isNoneSelected(): boolean {
+    return this.selectedCars.length === 0;
   }
-
+  
   showComparison = false;
 
   animateButton(event: Event): void {

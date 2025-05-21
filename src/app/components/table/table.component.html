@@ -1,33 +1,24 @@
 <div class="car-selection">
     <div class="container mt-4">
         <div class="row">
-            <div
-            class="col-md-4 mb-4"
-            *ngFor="let car of cars"
-            (click)="onCarCardClick(car)"
-          >
-            <div
-              class="card h-100 shadow-sm car-card"
-              [ngClass]="{
+            <div class="col-12 col-sm-6 col-lg-4 mb-4" *ngFor="let car of cars" (click)="onCarCardClick(car)">
+                <div class="card h-100 shadow-sm car-card" [ngClass]="{
                 'card-selected': car.selected,
                 'card-disabled': !car.selected && selectedCars.length >= 2,
                 'card-dimmed': isNoneSelected && !car.selected
-              }"
-            >
-              <img
-                [src]="car.image"
-                class="card-img-top"
-                [alt]="car.name"
-                style="height: 200px; object-fit: contain;"
-              />
-              <div class="card-body text-center">
-                <h5 class="card-title">{{ car.name }}</h5>
-                <p class="card-text">{{ car.brand }} • {{ car.year }}</p>
-              </div>
+              }">
+                    <img [src]="car.image" class="img-fluid rounded shadow w-100" alt="{{ car.name }}"
+                        style="max-height: 200px; object-fit: contain;" />
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ car.name }}</h5>
+                        <p class="card-text">{{ car.brand }} • {{ car.year }}</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
     </div>
+
     <!-- Botão para abrir o modal -->
     <div class="d-flex justify-content-center mt-3 mb-4">
         <button class="btn btn-primary compare-button" [disabled]="selectedCars.length !== 2" data-bs-toggle="modal"

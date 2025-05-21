@@ -47,3 +47,35 @@
   opacity: 1 !important;
   transform: scale(1.01);
 }
+
+/* Cards de carro */
+.car-card {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.car-card:hover {
+  transform: scale(1.02);
+}
+
+/* Botão de comparar */
+.compare-button {
+  min-width: 150px;
+}
+
+/* Modal - responsividade */
+@media (max-width: 768px) {
+  .modal-body .row > div {
+    margin-bottom: 1rem;
+  }
+
+  .modal-body img {
+    max-height: 150px;
+  }
+
+  .table th, .table td {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+}
+

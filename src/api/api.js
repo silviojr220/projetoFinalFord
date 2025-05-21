@@ -50,7 +50,7 @@ app.get("/vehicles", (req, res) => {
                 volumetotal: 145760,
                 connected: 70000,
                 softwareUpdates: 27550,
-                img: "https://projetofinalapi.onrender.com/img/ranger.-Photoroom.png"
+                img: "https://projetofinalapi.onrender.com/img/ranger-Photoroom.png"
             },
             {
                 id: 2,

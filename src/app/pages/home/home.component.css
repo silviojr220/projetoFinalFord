@@ -24,7 +24,7 @@ main {
 
 .section-bg {
     position: relative;
-    background-image: url('http://localhost:3001/img/background.png');
+    background-image: url('https://projetofinalapi.onrender.com/img/background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

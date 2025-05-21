@@ -86,9 +86,21 @@
                 </div>
 
                 <div class="mb-3">
-                    <textarea formControlName="descricao" class="form-control" rows="4" placeholder="DIGITE AQUI"
-                        required></textarea>
-                </div>
+                    <textarea
+                      formControlName="descricao"
+                      class="form-control"
+                      rows="4"
+                      placeholder="DIGITE AQUI*"
+                      required
+                      [class.is-invalid]="contatoForm.get('descricao')?.touched && contatoForm.get('descricao')?.invalid"
+                    ></textarea>
+                    <div
+                      *ngIf="contatoForm.get('descricao')?.touched && contatoForm.get('descricao')?.invalid"
+                      class="invalid-feedback"
+                    >
+                      Precisa digitar algo . . . 
+                    </div>
+                  </div>
 
                 <div class="form-text mb-3">
                     Os dados serão mantidos em nossa base de dados, só enquanto for desejado por você.

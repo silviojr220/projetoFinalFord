@@ -23,15 +23,17 @@ main {
 }
 
 .section-bg {
-    position: relative;
-    background-image: url('https://projetofinalapi.onrender.com/img/background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 12px;
-    padding: 2rem;
-    overflow: hidden;
-  }
+  position: relative;
+  background-image: url('https://projetofinalapi.onrender.com/img/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  padding: 1rem 1rem; /* // padding: top/bottom 1rem, left/right 1rem */
+  margin: 1rem 0; /* // ADICIONA margem vertical reduzida (em cima e embaixo) */
+  overflow: hidden;
+}
+
   
   .section-bg::before {
     content: "";

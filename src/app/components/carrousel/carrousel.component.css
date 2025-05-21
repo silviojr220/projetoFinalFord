@@ -1,21 +1,9 @@
-.carousel-inner {
-    height: 400px; /* Altura fixa */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .carousel-item {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .carousel-img {
-    max-height: 100%;
+.carousel-img {
+    max-height: 400px;
+    /* aumenta o tamanho */
     width: auto;
+    margin: 0 auto;
+    /* centraliza horizontalmente */
+    display: block;
     object-fit: contain;
-    margin: auto;
-  }
-  
+}

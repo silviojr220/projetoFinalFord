@@ -8,7 +8,7 @@ import { VehicleData } from '../models/vehiclesVin.model';
 })
 export class PostVinListService {
 
-  private vinApi = 'http://localhost:3001/vehicleData';
+  private vinApi = 'https://projetofinalapi.onrender.com/vehicleData';
 
   constructor(private http: HttpClient) { }
 

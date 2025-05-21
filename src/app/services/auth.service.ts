@@ -8,7 +8,7 @@ import { Usuario } from '../models/usuario.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3001/login';
+  private apiUrl = 'https://projetofinalapi.onrender.com/login';
 
   constructor(private http: HttpClient) {}
 

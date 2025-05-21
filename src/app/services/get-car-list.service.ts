@@ -8,7 +8,7 @@ import { Veiculo } from '../models/veiculo.model';
 })
 export class GetCarListService {
 
-  carros = 'http://localhost:3001/vehicles';
+  carros = 'https://projetofinalapi.onrender.com/vehicles';
 
   constructor(private http: HttpClient) { }
   

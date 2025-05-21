@@ -17,7 +17,7 @@ export class TableComponent {
       torque: '600Nm/405Nm',
       engine: '3.0 V6 ou 2.0',
       year: '2024',
-      image: 'https://projetofinalapi.onrender.com/img/ranger.png',
+      image: 'https://projetofinalapi.onrender.com/img/ranger-Photoroom.png',
       selected: false
     },
     {
@@ -27,7 +27,7 @@ export class TableComponent {
       torque: '564Nm',
       engine: 'Coyote 5.0L V8',
       year: '2025',
-      image: 'https://projetofinalapi.onrender.com/img/mustang.png',
+      image: 'https://projetofinalapi.onrender.com/img/mustang-Photoroom.png',
       selected: false
     },
     {
@@ -37,7 +37,7 @@ export class TableComponent {
       torque: '260 Nm',
       engine: '1.5L Turbo EcoBoost (4 cilindros)',
       year: '2025',
-      image: 'https://projetofinalapi.onrender.com/img/territory.png',
+      image: 'https://projetofinalapi.onrender.com/img/territory-Photoroom.png',
       selected: false
     },
     {
@@ -47,7 +47,7 @@ export class TableComponent {
       torque: '210 Nm',
       engine: '2.5L Atkinson Cycle Hybrid',
       year: '2025',
-      image: 'https://projetofinalapi.onrender.com/img/maverick.jpg',
+      image: 'https://projetofinalapi.onrender.com/img/maverick-Photoroom.png',
       selected: false
     }
   ];

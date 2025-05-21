@@ -49,9 +49,9 @@ main {
   }
   
 
-  .card-body {
-    padding: 1rem; /* padding menor */
-  }
+  /* .card-body {
+    padding: 1rem; 
+  } */
   
   .card.card-hover {
     min-height: 280px; /* altura mínima menor */

@@ -2,12 +2,13 @@
     <div class="row g-4 align-items-start">
         <!-- Imagem -->
         <div class="col-md-6 text-center">
-            <img src="https://projetofinalapi.onrender.com/img/broncoSport-Photoroom.png" class="img-fluid rounded" alt="Carro Ford" />
+            <img src="https://projetofinalapi.onrender.com/img/broncoSport-Photoroom.png" class="img-fluid rounded"
+                alt="Carro Ford" />
         </div>
 
         <!-- Formulário -->
         <div class="col-md-6">
-            <h2 class="mb-4 text-primary fw-bold">Sobre Você</h2>
+            <h2 class="mb-4 text-primary fw-bold"> Fale conosco! </h2>
             <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
                 <div class="mb-3">
                     <input type="text" formControlName="nome" class="form-control" placeholder="NOME*"
@@ -41,7 +42,7 @@
                         CPF é obrigatório.
                     </div>
                 </div>
-
+                <!-- 
                 <div class="mb-3">
                     <input type="email" formControlName="email" class="form-control" placeholder="E-MAIL*"
                         [class.is-invalid]="contatoForm.get('email')?.touched && contatoForm.get('email')?.invalid"
@@ -52,12 +53,75 @@
                     </div>
                     <div *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['email']"
                         class="invalid-feedback">
-                        E-mail inválido.
+                        E-mail inválido. Da uma olhadinha se tem o &#64; ou se o dominio digitado corretamente. (&#64;gmail.com /
+                        &#64;outlook.com / &#64;yahoo.com)
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <input type="tel" formControlName="telefone" mask="(00) 00000-0000" class="form-control"
+                    <input type="tel" formControlName="telefone" mask="+00 (00) 00000-0000" class="form-control"
+                        placeholder="TELEFONE*"
+                        [class.is-invalid]="contatoForm.get('telefone')?.touched && contatoForm.get('telefone')?.invalid"
+                        required />
+                    <div *ngIf="contatoForm.get('telefone')?.touched && contatoForm.get('telefone')?.invalid"
+                        class="invalid-feedback">
+                        Telefone é obrigatório.
+                    </div>
+                </div> -->
+
+
+                <!-- COMO DESEJA SER CONTATADO -->
+                <!-- COMO DESEJA SER CONTATADO -->
+                <div class="mb-3">
+                    <select formControlName="contato" class="form-select"
+                        [class.is-invalid]="contatoForm.get('contato')?.touched && contatoForm.get('contato')?.invalid"
+                        required>
+                        <option value="">COMO DESEJA SER CONTATADO</option>
+                        <option value="Telefone">TELEFONE</option>
+                        <option value="Email">E-MAIL</option>
+                    </select>
+                    <div *ngIf="contatoForm.get('contato')?.touched && contatoForm.get('contato')?.invalid"
+                        class="invalid-feedback">
+                        Selecione uma opção.
+                    </div>
+                </div>
+
+                <!-- E-MAIL -->
+                <div class="mb-3" *ngIf="contatoForm.get('contato')?.value === 'Email'">
+                    <input type="email" formControlName="email" class="form-control" placeholder="E-MAIL*"
+                        [class.is-invalid]="contatoForm.get('email')?.touched && contatoForm.get('email')?.invalid"
+                        required />
+                    <div *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['required']"
+                        class="invalid-feedback">
+                        E-mail é obrigatório.
+                    </div>
+                    <div *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['email']"
+                        class="invalid-feedback">
+                        Tem algo errado! Da uma olhadinha se tem o &#64; ou se o dominio digitado corretamente.
+                    </div>
+                    <div *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['dominioInvalido']"
+                        class="invalid-feedback">
+                        Os dominios que são validos 😉 :&#64;gmail.com, &#64;outlook.com e &#64;yahoo.com
+                    </div>
+                </div>
+
+                <!-- TELEFONE -->
+                <div class="mb-3" *ngIf="contatoForm.get('contato')?.value === 'Telefone'">
+                    <select formControlName="pais" class="form-select" [class.is-invalid]="contatoForm.get('pais') && contatoForm.get('pais')?.invalid" required>
+                        <option [ngValue]="" selected>SELECIONE O PAÍS</option>
+                        <option [ngValue]="'br'">🇧🇷 Brasil (+55)</option>
+                        <option [ngValue]="'us'">🇺🇸 EUA (+1)</option>
+                        <option [ngValue]="'uk'">🇬🇧 Reino Unido (+44)</option>
+                        <option [ngValue]="'de'">🇩🇪 Alemanha (+49)</option>
+                        <option [ngValue]="'pt'">🇵🇹 Portugal (+351)</option>
+                      </select>
+                      <div *ngIf="contatoForm.get('pais') && contatoForm.get('pais')?.invalid" class="invalid-feedback">
+                        Qual o DDD do seu páis? 🗺️📞
+                      </div>
+                  </div>
+                  
+                <div class="mb-3" *ngIf="contatoForm.get('contato')?.value === 'Telefone'">
+                    <input type="tel" formControlName="telefone" [mask]="telefoneMask" class="form-control"
                         placeholder="TELEFONE*"
                         [class.is-invalid]="contatoForm.get('telefone')?.touched && contatoForm.get('telefone')?.invalid"
                         required />
@@ -67,40 +131,34 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <select formControlName="contato" class="form-select" required>
-                        <option value="">COMO DESEJA SER CONTATADO</option>
-                        <option value="Telefone">TELEFONE</option>
-                        <option value="Email">E-MAIL</option>
-                    </select>
-                </div>
 
+                <!-- MOTIVO CONTATO -->
                 <div class="mb-3">
-                    <select formControlName="tipoContato" class="form-select" required>
+                    <select formControlName="tipoContato" class="form-select"
+                        [class.is-invalid]="contatoForm.get('tipoContato')?.touched && contatoForm.get('tipoContato')?.invalid"
+                        required>
                         <option value="">MOTIVO CONTATO</option>
                         <option value="Elogio">ELOGIO</option>
                         <option value="Reclamação">RECLAMAÇÃO</option>
                         <option value="Solicitação">SOLICITAÇÃO</option>
                         <option value="Sugestão">SUGESTÃO</option>
                     </select>
+                    <div *ngIf="contatoForm.get('tipoContato')?.touched && contatoForm.get('tipoContato')?.invalid"
+                        class="invalid-feedback">
+                        Motivo do contato é obrigatório.
+                    </div>
                 </div>
 
+
                 <div class="mb-3">
-                    <textarea
-                      formControlName="descricao"
-                      class="form-control"
-                      rows="4"
-                      placeholder="DIGITE AQUI*"
-                      required
-                      [class.is-invalid]="contatoForm.get('descricao')?.touched && contatoForm.get('descricao')?.invalid"
-                    ></textarea>
-                    <div
-                      *ngIf="contatoForm.get('descricao')?.touched && contatoForm.get('descricao')?.invalid"
-                      class="invalid-feedback"
-                    >
-                      Precisa digitar algo . . . 
+                    <textarea formControlName="descricao" class="form-control" rows="4" placeholder="DIGITE AQUI*"
+                        required
+                        [class.is-invalid]="contatoForm.get('descricao')?.touched && contatoForm.get('descricao')?.invalid"></textarea>
+                    <div *ngIf="contatoForm.get('descricao')?.touched && contatoForm.get('descricao')?.invalid"
+                        class="invalid-feedback">
+                        Conte para gente o que deseja falar. 😉
                     </div>
-                  </div>
+                </div>
 
                 <div class="form-text mb-3">
                     Os dados serão mantidos em nossa base de dados, só enquanto for desejado por você.

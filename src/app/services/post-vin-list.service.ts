@@ -22,4 +22,11 @@ export class PostVinListService {
       })
     )
   }
+
+  buscarPorTermo(termo: string): Observable<VehicleData[]> {
+    return this.http.get<VehicleData[]>(`${this.vinApi}?termo=${termo}`).pipe(
+      catchError(() => of([]))
+    );
+  }
+  
 }

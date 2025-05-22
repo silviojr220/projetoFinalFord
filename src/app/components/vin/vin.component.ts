@@ -15,6 +15,7 @@ export class VinComponent {
   barraDePesquisa: FormControl = new FormControl('');
   dadosVeiculosData: VehicleData[] = [];
   veiculosDetalhado?: VehicleData;
+  loading = false;
 
   constructor(private buscarDadosService: PostVinListService) { }
 

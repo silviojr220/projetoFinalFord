@@ -1,0 +1,30 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table th, .table td {
+    text-align: center;
+  }
+  
+  .input-group-text {
+    border-radius: 0.375rem 0 0 0.375rem;
+  }
+  
+  .spinner-border {
+    margin: 20px 0;
+  }
+  
+  td {
+    word-break: break-word;
+    max-width: 200px; /* ou 100% pra mobile */
+  }
+  
+
+  @media (max-width: 768px) {
+    .responsive-row p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+  }
+  

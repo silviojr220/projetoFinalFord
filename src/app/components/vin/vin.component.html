@@ -1,25 +1,28 @@
 <div class="card p-4">
-  <div class="input-group mb-3">
-    <span class="input-group-text bg-white border-end-0">
-      <i class="bi bi-search"></i>
-    </span>
-    <input [formControl]="barraDePesquisa"
-           name="pesquisa"
-           type="text"
-           class="form-control border-start-0"
-           placeholder="Pesquise pelo VIN"
-           (input)="pesquisar()">
+  <div class="row">
+    <div class="col-12 col-md-8 mx-auto">
+      <div class="input-group mb-3">
+        <span class="input-group-text bg-white border-end-0">
+          <i class="bi bi-search"></i>
+        </span>
+        <input [formControl]="barraDePesquisa" name="pesquisa" type="text" class="form-control border-start-0"
+          placeholder="Pesquise pelo VIN" (input)="pesquisar()" (blur)="barraDePesquisa.markAsTouched()"
+          [class.is-invalid]="barraDePesquisa.invalid && barraDePesquisa.touched">
+      </div>
+    </div>
   </div>
 
+<!-- TABELA TRADICIONAL (visível só em md pra cima) -->
+<div class="table-responsive d-none d-md-block">
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col"><i class="bi bi-hash me-1 text-primary"></i>Código-VIN</th>
-        <th scope="col"><i class="bi bi-speedometer2 me-1 text-success"></i>Odômetro</th>
-        <th scope="col"><i class="bi bi-fuel-pump-fill me-1 text-warning"></i>Nível Combustível</th>
-        <th scope="col"><i class="bi bi-info-circle-fill me-1 text-secondary"></i>Status</th>
-        <th scope="col"><i class="bi bi-geo-alt-fill me-1 text-danger"></i>Lat</th>
-        <th scope="col"><i class="bi bi-geo-alt-fill me-1 text-danger"></i>Long</th>
+        <th><i class="bi bi-hash text-primary me-1"></i>Código-VIN</th>
+        <th><i class="bi bi-speedometer2 text-success me-1"></i>Odômetro</th>
+        <th><i class="bi bi-fuel-pump-fill text-warning me-1"></i>Nível Combustível</th>
+        <th><i class="bi bi-info-circle-fill text-secondary me-1"></i>Status</th>
+        <th><i class="bi bi-geo-alt-fill text-danger me-1"></i>Lat</th>
+        <th><i class="bi bi-geo-alt-fill text-danger me-1"></i>Long</th>
       </tr>
     </thead>
     <tbody>
@@ -33,11 +36,36 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- VISUAL RESPONSIVO (visível só em sm pra baixo) -->
+<div class="d-block d-md-none">
+  <div *ngIf="veiculosDetalhado; else semDados" class="border rounded p-3 mb-3 shadow-sm">
+    <p><strong><i class="bi bi-hash text-primary me-1"></i>VIN:</strong> {{ veiculosDetalhado.id }}</p>
+    <p><strong><i class="bi bi-speedometer2 text-success me-1"></i>Odômetro:</strong> {{ veiculosDetalhado.odometro }}</p>
+    <p><strong><i class="bi bi-fuel-pump-fill text-warning me-1"></i>Combustível:</strong> {{ veiculosDetalhado.nivelCombustivel }}</p>
+    <p><strong><i class="bi bi-info-circle-fill text-secondary me-1"></i>Status:</strong> {{ veiculosDetalhado.status }}</p>
+    <p><strong><i class="bi bi-geo-alt-fill text-danger me-1"></i>Lat:</strong> {{ veiculosDetalhado.lat }}</p>
+    <p><strong><i class="bi bi-geo-alt-fill text-danger me-1"></i>Long:</strong> {{ veiculosDetalhado.long }}</p>
+  </div>
+</div>
+
+
+  <div *ngIf="loading" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Carregando...</span>
+  </div>
 
   <ng-template #semDados>
-    <div class="alert alert-warning text-center" role="alert">
+    <div class="alert alert-danger text-center" role="alert">
       <i class="bi bi-exclamation-triangle-fill me-2"></i>
-      Nenhum dado encontrado para esse VIN.
+      Não encontramos dados para o VIN fornecido.
+
+      <div *ngIf="barraDePesquisa.invalid && barraDePesquisa.touched" class="text-danger mt-1">
+        <small>O VIN deve ter exatamente 17 caracteres alfanuméricos.</small>
+      </div>
+
     </div>
   </ng-template>
+
+
 </div>

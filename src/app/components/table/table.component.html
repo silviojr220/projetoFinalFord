@@ -1,12 +1,22 @@
 <div class="car-selection">
+    <p class="text-center fs-4 fw-semibold text-primary mb-4">
+        Compare nossos recém-lançados!
+    </p>
+    <small class="d-block text-center text-secondary fw-medium mb-2">
+        <i class="bi bi-info-circle me-1"></i>
+        Veja cada um individualmente ou compare entre eles! (Selecione dois para a comparação)
+    </small>
+
+
+
     <div class="container mt-4">
         <div class="row">
             <div class="col-12 col-sm-6 col-lg-4 mb-4" *ngFor="let car of cars" (click)="onCarCardClick(car)">
                 <div class="card h-100 shadow-sm car-card" [ngClass]="{
-                'card-selected': car.selected,
-                'card-disabled': !car.selected && selectedCars.length >= 2,
-                'card-dimmed': isNoneSelected && !car.selected
-              }">
+                  'card-selected': car.selected,
+                  'card-disabled': !car.selected && selectedCars.length >= 2,
+                  'card-dimmed': isNoneSelected && !car.selected
+                }">
                     <img [src]="car.image" class="img-fluid" alt="{{ car.name }}"
                         style="max-height: 200px; object-fit: contain;" />
 
@@ -14,6 +24,23 @@
                         <h5 class="card-title">{{ car.name }}</h5>
                         <p class="card-text">{{ car.brand }} • {{ car.year }}</p>
                     </div>
+
+                    <!-- Botão de compra -->
+                    <div class="card-footer bg-transparent border-0 text-center">
+                        <a [routerLink]="car.selected ? ['/contato'] : null"
+                            class="btn btn-outline-primary btn-sm fw-bold"
+                            [class.disabled]="!car.selected || (!car.selected && selectedCars.length >= 2)"
+                            [attr.aria-disabled]="!car.selected"
+                            (click)="preventClickIfDisabled($event, !car.selected)">
+                            Quero esse!
+                        </a>
+                        <button class="btn btn-outline-primary btn-sm fw-bold m-2" data-bs-toggle="modal"
+                            data-bs-target="#infoModal" (click)="showCarInfo(car)">
+                            <i class="bi bi-info-circle me-1"></i>Info
+                        </button>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -28,6 +55,9 @@
     </div>
 
 </div>
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="comparisonModal" tabindex="-1" aria-labelledby="comparisonModalLabel" aria-hidden="true">
@@ -44,7 +74,7 @@
                 <!-- Imagens dos carros -->
                 <div class="row text-center mb-4">
                     <div class="col-6" *ngFor="let car of selectedCars">
-                        <img [src]="car.image" class="img-fluid rounded shadow" alt="{{ car.name }}"
+                        <img [src]="car.image" class="img-fluid rounded shadow m-2" alt="{{ car.name }}"
                             style="max-height: 200px;" />
                         <p class="mt-2 fw-bold">{{ car.name }}</p>
                     </div>
@@ -52,29 +82,73 @@
 
                 <!-- Tabela com dados -->
                 <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Modelo</th>
-                            <th>Marca</th>
-                            <th>Ano</th>
-                            <th>Potência</th>
-                            <th>Torque</th>
-                            <th>Motor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let car of selectedCars">
-                            <td>{{ car.name }}</td>
-                            <td>{{ car.brand }}</td>
-                            <td>{{ car.year }}</td>
-                            <td>{{ car.power }}</td>
-                            <td>{{ car.torque }}</td>
-                            <td>{{ car.engine }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Modelo</th>
+                                <th>Marca</th>
+                                <th>Ano</th>
+                                <th>Potência</th>
+                                <th>Torque</th>
+                                <th>Motor</th>
+                                <th>Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let car of selectedCars">
+                                <td>{{ car.name }}</td>
+                                <td>{{ car.brand }}</td>
+                                <td>{{ car.year }}</td>
+                                <td>{{ car.power }}</td>
+                                <td>{{ car.torque }}</td>
+                                <td>{{ car.engine }}</td>
+                                <td>{{ car.price }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Info Individual -->
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-white" style="background-color: #0d6efd;">
+                <h5 class="modal-title" id="infoModalLabel">
+                    Detalhes do {{ carToShow?.name }}
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body" *ngIf="carToShow">
+                <div class="row">
+                    <div class="col-md-5 text-center">
+                        <img [src]="carToShow.image" class="img-fluid rounded shadow" alt="{{ carToShow.name }}" />
+                    </div>
+                    <div class="col-md-7">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Modelo:</strong> {{ carToShow.name }}</li>
+                            <li class="list-group-item"><strong>Marca:</strong> {{ carToShow.brand }}</li>
+                            <li class="list-group-item"><strong>Ano:</strong> {{ carToShow.year }}</li>
+                            <li class="list-group-item"><strong>Potência:</strong> {{ carToShow.power }}</li>
+                            <li class="list-group-item"><strong>Torque:</strong> {{ carToShow.torque }}</li>
+                            <li class="list-group-item"><strong>Motor:</strong> {{ carToShow.engine }}</li>
+                            <li class="list-group-item"><strong>Preço:</strong> {{ carToShow.price }}</li>
+                            <small class="d-block text-center text-secondary fw-medium mb-2">
+                                <i class="bi bi-info-circle me-1"></i>
+                               O investimento vale a pena, a primeira compra tem desconto. Lembre-se Ford sempre tem algo que lhe agrada! 😉
+                            </small>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

@@ -1,13 +1,12 @@
 <header>
   <app-header></app-header> 
 </header>
-  <div *ngIf="selectorVehicles" class="container-fluid d-flex justify-content-center flex-column flex-fill">
+<div class="container-fluid">
+  <div *ngIf="selectorVehicles" class="row justify-content-center gy-4">
 
-    <!-- Cards em linha -->
-    <div class="d-flex flex-row flex-wrap gap-1 justify-content-center my-auto">
-
-      <!-- Seletor-de-Carros -->
-      <div class="card mb-3" style="width: 18rem;">
+    <!-- Card: Selecionar Veículo -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">
             <i class="bi bi-car-front-fill text-primary me-2"></i>
@@ -21,9 +20,11 @@
           </select>
         </div>
       </div>
+    </div>
 
-      <!-- Total-de-Vendas -->
-      <div class="card" style="width: 18rem;">
+    <!-- Card: Total de Vendas -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">
             <i class="bi bi-bar-chart-fill text-success me-2"></i>
@@ -33,9 +34,11 @@
           <p class="card-text">Unid.</p>
         </div>
       </div>
+    </div>
 
-      <!-- Conectados -->
-      <div class="card" style="width: 18rem;">
+    <!-- Card: Conectados -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">
             <i class="bi bi-wifi text-info me-2"></i>
@@ -45,9 +48,11 @@
           <p class="card-text">Unid.</p>
         </div>
       </div>
+    </div>
 
-      <!-- Update-Software -->
-      <div class="card" style="width: 18rem;">
+    <!-- Card: Unidade Software -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">
             <i class="bi bi-arrow-repeat text-warning me-2"></i>
@@ -57,23 +62,32 @@
           <p class="card-text">Unid.</p>
         </div>
       </div>
+    </div>
 
-      <!-- Imagem -->
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
+    <!-- Card: Imagem -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <div class="card-body text-center">
           <h5 class="card-title">
             <i class="bi bi-image-fill text-secondary me-2"></i>
             Imagem do Veículo
           </h5>
-          <img class="img-fluid" *ngIf="selectorVehicles.img" [src]="selectorVehicles.img"
-            alt="Imagem de {{ selectorVehicles.vehicle }}" style="max-height: 100%;">
+          <img class="img-fluid rounded shadow-sm" *ngIf="selectorVehicles.img" [src]="selectorVehicles.img"
+            alt="Imagem de {{ selectorVehicles.vehicle }}">
         </div>
       </div>
     </div>
-    <div class="mt-auto">
+
+  </div>
+
+  <!-- VIN (sempre por último e 100% da largura) -->
+  <div class="row mt-5">
+    <div class="col-12">
       <app-vin></app-vin>
     </div>
   </div>
+</div>
+
 <footer>
   <app-footer></app-footer>
 </footer>

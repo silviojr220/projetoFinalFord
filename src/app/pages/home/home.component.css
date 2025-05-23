@@ -57,3 +57,7 @@ main {
     min-height: 280px; /* altura mínima menor */
   }
   
+
+  .card {
+    text-align: justify;
+  }

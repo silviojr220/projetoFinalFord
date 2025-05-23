@@ -60,7 +60,7 @@
 
                 <!-- E-MAIL -->
                 <div class="mb-3" *ngIf="contatoForm.get('contato')?.value === 'Email'">
-                    <input type="email" formControlName="email" class="form-control" placeholder="E-MAIL*"
+                    <input type="email" formControlName="email" class="form-control" placeholder="E-MAIL*" list="sugestoes-email" autocomplete="email"
                         [class.is-invalid]="contatoForm.get('email')?.touched && contatoForm.get('email')?.invalid"
                         required />
                     <div *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['required']"
@@ -75,6 +75,16 @@
                         class="invalid-feedback">
                         Os dominios que são validos 😉 :&#64;gmail.com, &#64;outlook.com e &#64;yahoo.com
                     </div>
+
+                    <datalist id="sugestoes-email">
+                        <ng-container *ngIf="contatoForm.get('email')?.value && !contatoForm.get('email')?.value.includes('@')">
+                          <option
+                            *ngFor="let dominio of dominiosEmail"
+                            [value]="contatoForm.get('email')?.value + '@' + dominio">
+                          </option>
+                        </ng-container>
+                      </datalist>
+                      
                 </div>
 
                 <!-- TELEFONE -->

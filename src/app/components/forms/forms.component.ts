@@ -28,6 +28,7 @@ class Contato {
 export class FormsComponent {
   contatoForm: FormGroup;
   termosAceitos: boolean = false;
+  dominiosEmail: string[] = ['gmail.com', 'outlook.com', 'yahoo.com'];
 
   telefoneMask: string = '(00) 00000-0000';
 
@@ -109,6 +110,8 @@ export class FormsComponent {
       email?.updateValueAndValidity();
       telefone?.updateValueAndValidity();
     });
+
+    
 
 
     // Domínios permitidos

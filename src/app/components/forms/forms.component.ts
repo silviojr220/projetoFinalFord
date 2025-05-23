@@ -61,8 +61,34 @@ export class FormsComponent {
       contato: ['', Validators.required],
       tipoContato: ['', Validators.required],
       descricao: ['', Validators.required],
-      receberNovidades: [false]
+      receberNovidades: [false],
+      pais: ['']
     });
+
+    this.contatoForm.get('contato')?.valueChanges.subscribe((valor) => {
+      const email = this.contatoForm.get('email');
+      const telefone = this.contatoForm.get('telefone');
+      const pais = this.contatoForm.get('pais');
+    
+      if (valor === 'Email') {
+        email?.setValidators([Validators.required, Validators.email, dominioEmailValidator()]);
+        telefone?.clearValidators();
+        pais?.clearValidators();
+      } else if (valor === 'Telefone') {
+        telefone?.setValidators([Validators.required]);
+        pais?.setValidators([Validators.required]); // agora o país é obrigatório!
+        email?.clearValidators();
+      } else {
+        telefone?.clearValidators();
+        email?.clearValidators();
+        pais?.clearValidators();
+      }
+    
+      email?.updateValueAndValidity();
+      telefone?.updateValueAndValidity();
+      pais?.updateValueAndValidity(); // atualiza o validador do país
+    });
+    
 
     // Atualiza validador dependendo do tipo de contato
     this.contatoForm.get('contato')?.valueChanges.subscribe((valor) => {

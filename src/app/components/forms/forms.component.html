@@ -82,7 +82,7 @@
                     <select formControlName="pais" class="form-select"
                         [class.is-invalid]="contatoForm.get('pais')?.touched && contatoForm.get('pais')?.invalid"
                         required>
-                        <option [ngValue]="''" selected>SELECIONE O PAÍS</option>
+                        <option value="" disabled selected>SELECIONE O PAÍS</option>
                         <option [ngValue]="'br'">🇧🇷 Brasil (+55)</option>
                         <option [ngValue]="'us'">🇺🇸 EUA (+1)</option>
                         <option [ngValue]="'uk'">🇬🇧 Reino Unido (+44)</option>
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="mb-3" *ngIf="contatoForm.get('contato')?.value === 'Telefone'">
-                    <input type="tel" formControlName="telefone" [mask]="telefoneMask" class="form-control"
+                    <input type="tel" formControlName="telefone" mask="(00) 0 0000-0000" class="form-control"
                         placeholder="TELEFONE*"
                         [class.is-invalid]="contatoForm.get('telefone')?.touched && contatoForm.get('telefone')?.invalid"
                         required />

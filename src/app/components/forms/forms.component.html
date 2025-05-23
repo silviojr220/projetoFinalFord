@@ -42,35 +42,7 @@
                         CPF é obrigatório.
                     </div>
                 </div>
-                <!-- 
-                <div class="mb-3">
-                    <input type="email" formControlName="email" class="form-control" placeholder="E-MAIL*"
-                        [class.is-invalid]="contatoForm.get('email')?.touched && contatoForm.get('email')?.invalid"
-                        required />
-                    <div *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['required']"
-                        class="invalid-feedback">
-                        E-mail é obrigatório.
-                    </div>
-                    <div *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['email']"
-                        class="invalid-feedback">
-                        E-mail inválido. Da uma olhadinha se tem o &#64; ou se o dominio digitado corretamente. (&#64;gmail.com /
-                        &#64;outlook.com / &#64;yahoo.com)
-                    </div>
-                </div>
 
-                <div class="mb-3">
-                    <input type="tel" formControlName="telefone" mask="+00 (00) 00000-0000" class="form-control"
-                        placeholder="TELEFONE*"
-                        [class.is-invalid]="contatoForm.get('telefone')?.touched && contatoForm.get('telefone')?.invalid"
-                        required />
-                    <div *ngIf="contatoForm.get('telefone')?.touched && contatoForm.get('telefone')?.invalid"
-                        class="invalid-feedback">
-                        Telefone é obrigatório.
-                    </div>
-                </div> -->
-
-
-                <!-- COMO DESEJA SER CONTATADO -->
                 <!-- COMO DESEJA SER CONTATADO -->
                 <div class="mb-3">
                     <select formControlName="contato" class="form-select"
@@ -107,19 +79,22 @@
 
                 <!-- TELEFONE -->
                 <div class="mb-3" *ngIf="contatoForm.get('contato')?.value === 'Telefone'">
-                    <select formControlName="pais" class="form-select" [class.is-invalid]="contatoForm.get('pais') && contatoForm.get('pais')?.invalid" required>
-                        <option [ngValue]="" selected>SELECIONE O PAÍS</option>
+                    <select formControlName="pais" class="form-select"
+                        [class.is-invalid]="contatoForm.get('pais')?.touched && contatoForm.get('pais')?.invalid"
+                        required>
+                        <option [ngValue]="''" selected>SELECIONE O PAÍS</option>
                         <option [ngValue]="'br'">🇧🇷 Brasil (+55)</option>
                         <option [ngValue]="'us'">🇺🇸 EUA (+1)</option>
                         <option [ngValue]="'uk'">🇬🇧 Reino Unido (+44)</option>
                         <option [ngValue]="'de'">🇩🇪 Alemanha (+49)</option>
                         <option [ngValue]="'pt'">🇵🇹 Portugal (+351)</option>
-                      </select>
-                      <div *ngIf="contatoForm.get('pais') && contatoForm.get('pais')?.invalid" class="invalid-feedback">
+                    </select>
+                    <div *ngIf="contatoForm.get('pais')?.touched && contatoForm.get('pais')?.invalid"
+                        class="invalid-feedback">
                         Qual o DDD do seu páis? 🗺️📞
-                      </div>
-                  </div>
-                  
+                    </div>
+                </div>
+
                 <div class="mb-3" *ngIf="contatoForm.get('contato')?.value === 'Telefone'">
                     <input type="tel" formControlName="telefone" [mask]="telefoneMask" class="form-control"
                         placeholder="TELEFONE*"

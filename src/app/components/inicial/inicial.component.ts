@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-inicial',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,],  // Inclui o HttpClientModule aqui
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './inicial.component.html',
   styleUrls: ['./inicial.component.css']
 })

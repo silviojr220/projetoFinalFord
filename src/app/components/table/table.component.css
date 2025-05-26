@@ -27,11 +27,10 @@
   transition: all 0.3s ease;
   cursor: pointer;
 }
-
-/* Quando nenhum estiver selecionado, todos ficam meio opacos */
+/* 
 .card-dimmed {
   opacity: 0.5;
-}
+} */
 
 /* Quando tem 2 já selecionados */
 .card-disabled {

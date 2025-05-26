@@ -49,8 +49,14 @@
 </div>
 
 <!-- Ícone de notificação -->
-<div class="position-relative me-3">
-  <i class="bi bi-bell-fill fs-4 text-custom-blue" role="button" (click)="toggleNotifications()"></i>
+  <div class="position-relative me-3">
+    <i class="bi bi-bell-fill fs-4 text-custom-blue position-relative" role="button" (click)="toggleNotifications()">
+      <span *ngIf="hasNewNotifications" class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+        <span class="visually-hidden">Novas notificações</span>
+      </span>
+    </i>
+    
+
 
   <!-- Card flutuante de notificações -->
   <div *ngIf="showNotifications" class="position-absolute end-0 mt-2 p-3 bg-white rounded shadow-lg"

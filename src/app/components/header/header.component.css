@@ -1,108 +1,126 @@
 .custom-navbar {
-    background-color: #1b357e 9 !important;
-  }
+  background-color: #1b357e 9 !important;
+}
 
-  .navbar-nav {
-    margin: 0 auto; /* centraliza horizontalmente */
-  }
+.navbar-nav {
+  margin: 0 auto;
+  /* centraliza horizontalmente */
+}
 
+.navbar-nav .nav-link {
+  color: #244fc5 !important;
+  /* forçando branco nos links */
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+  text-decoration: underline;
+}
+
+.text-custom-blue {
+  color: #244fc5 !important;
+}
+
+.custom-btn-blue {
+  color: #244fc5;
+  border-color: #244fc5;
+}
+
+.custom-btn-blue:hover {
+  background-color: #244fc5;
+  color: #fff;
+}
+
+.bi-bell-fill:hover {
+  color: #1d3bbf;
+  transition: 0.2s ease;
+}
+
+.card[role='button']:hover {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+.notification-card {
+  transition: 0.3s ease;
+}
+
+.notification-card.highlighted {
+  border: 2px solid #244fc5;
+  box-shadow: 0 0 6px rgba(36, 79, 197, 0.4);
+}
+
+
+.notification-sidebar {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+  overflow-y: auto;
+  transition: right 0.3s ease-in-out;
+}
+
+.notification-sidebar.open {
+  right: 0;
+}
+
+.notification-card {
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.notification-card.highlighted {
+  border: 2px solid #244fc5;
+  box-shadow: 0 0 6px rgba(36, 79, 197, 0.4);
+}
+
+
+/* Estilo  */
+.custom-sidebar {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+  overflow-y: auto;
+  transition: right 0.3s ease-in-out;
+  padding-top: 1rem;
+}
+
+.custom-sidebar.open {
+  right: 0;
+}
+
+.custom-sidebar a {
+  text-decoration: none;
+}
+
+.bilist {
+  margin-right: 10px;
+}
+
+
+.bi-list:hover {
+  color: #1d3bbf;
+  transition: 0.2s ease;
+}
+
+
+/* NavBar */
+.navbar-nav .nav-link {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
   .navbar-nav .nav-link {
-    color: #244fc5 !important; /* forçando branco nos links */
-    padding: 0.5rem 1rem;
-  }
+    font-size: 1rem;
 
-  .navbar-nav .nav-link:hover {
-    text-decoration: underline;
   }
-
-  .text-custom-blue {
-    color: #244fc5 !important;
-  }
-  
-  .custom-btn-blue {
-    color: #244fc5;
-    border-color: #244fc5;
-  }
-  
-  .custom-btn-blue:hover {
-    background-color: #244fc5;
-    color: #fff;
-  }
-  
-  .bi-bell-fill:hover {
-    color: #1d3bbf;
-    transition: 0.2s ease;
-  }
-  
-  .card[role='button']:hover {
-    background-color: #f4f4f4;
-    cursor: pointer;
-  }
-
-  .notification-card {
-    transition: 0.3s ease;
-  }
-  
-  .notification-card.highlighted {
-    border: 2px solid #244fc5;
-    box-shadow: 0 0 6px rgba(36, 79, 197, 0.4);
-  }
-  
-
-  .notification-sidebar {
-    position: fixed;
-    top: 0;
-    right: -320px;
-    width: 320px;
-    height: 100vh;
-    background-color: #fff;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1050;
-    overflow-y: auto;
-    transition: right 0.3s ease-in-out;
-  }
-  
-  .notification-sidebar.open {
-    right: 0;
-  }
-  
-  .notification-card {
-    transition: 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .notification-card.highlighted {
-    border: 2px solid #244fc5;
-    box-shadow: 0 0 6px rgba(36, 79, 197, 0.4);
-  }
-  
-
-  /* Estilo  */
-  .custom-sidebar {
-    position: fixed;
-    top: 0;
-    right: -320px;
-    width: 320px;
-    height: 100vh;
-    background-color: #fff;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1050;
-    overflow-y: auto;
-    transition: right 0.3s ease-in-out;
-    padding-top: 1rem;
-  }
-  
-  .custom-sidebar.open {
-    right: 0;
-  }
-  
-  .custom-sidebar a {
-    text-decoration: none;
-  }
-  
-  .bi-list:hover {
-    color: #1d3bbf;
-    transition: 0.2s ease;
-  }
-  
-  
+}

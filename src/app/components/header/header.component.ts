@@ -12,6 +12,8 @@ import { Router, RouterLink } from '@angular/router';
 export class HeaderComponent {
   showSidebar = false;
   clickedCards = [false, false];
+  hasNewNotifications = true;
+
 
   toggleSidebar() {
     this.showSidebar = !this.showSidebar;
@@ -20,6 +22,13 @@ export class HeaderComponent {
   handleCardClick(index: number, url: string) {
     this.clickedCards[index] = true;
     window.open(url, '_blank');
+
+    // verifica se todas foram clicadas
+    const allClicked = this.clickedCards.every(clicked => clicked === true);
+    if (allClicked) {
+      this.hasNewNotifications = false;
+    }
+
   }
 
   showNotifications = false;
